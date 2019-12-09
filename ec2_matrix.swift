@@ -54,21 +54,14 @@ func calculeaza(_ coef:[Float])->[[Float]]
 {
   let delta = coef[1] * coef[1] - 4 * coef[0] * coef[2]
   if delta >= 0{
-    return [[(-coef[1] - sqrt(delta)) / (2 * coef[0])],[(-coef[1] + sqrt(delta)) / (2 * coef[0]),0]]
-
-    x1.append( 0)
-    x2.append( 0)
+    return [[(-coef[1] - sqrt(delta)) / (2 * coef[0]),0],[(-coef[1] + sqrt(delta)) / (2 * coef[0]),0]]
 }
 else{
-  return [[ -coef[1] / (2 * coef[0])],[,]]
-  x1.append()
-  x2.append( -coef[1] / (2 * coef[0]))
-  x1.append( -sqrt(-delta) / (2 * coef[0]))
-  x2.append( sqrt(-delta) / (2 * coef[0]))
+  return [[-coef[1] / (2 * coef[0]), -sqrt(-delta) / (2 * coef[0])],[ -coef[1] / (2 * coef[0]), sqrt(-delta) / (2 * coef[0])]]
   }
 }
 
-func tipareste(_ x1: [Float], _ x2: [Float])
+func tipareste(_ x: [[Float]])
 {
   print("x1 = \(x[0][0]) + \(x[0][1])i")
   print("x2 = \(x[1][0]) + \(x[1][1])i")
@@ -76,18 +69,20 @@ func tipareste(_ x1: [Float], _ x2: [Float])
 
 func tipareste_coeficienti(_ coef: [Float])
 {
+  //varianta 1
   /*
   for i in coef{
     print(i)
   }
-  */1
+  */
+  //varianta 2
   /*
   var i: Int = 0
   while(i < 3){
     print(coef[i])
     i += 1
   }
-  */2
+  */
   var i = 0
   repeat{
     print(coef[i])
