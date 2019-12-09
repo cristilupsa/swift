@@ -47,7 +47,7 @@ else {
 
 func calculeaza(_ a: Float, _ b: Float, _ c: Float, _ x1_re: inout Float, _ x1_im: inout Float, _ x2_re: inout Float, _ x2_im: inout Float)
 {
-let delta = b * b * -4 * a * c
+let delta = b * b - 4 * a * c
 if delta >= 0{
   x1_re = (-b - sqrt(delta)) / (2 * a)
   x2_re = (-b + sqrt(delta)) / (2 * a)
@@ -57,12 +57,12 @@ if delta >= 0{
 else{
   x1_re = -b / (2*a)
   x2_re = -b / (2*a)
-  x1_im = -sqrt(delta) / (2 * a)
-  x2_im = sqrt(delta) / (2 * a)
+  x1_im = -sqrt(-delta) / (2 * a)
+  x2_im = sqrt(-delta) / (2 * a)
 }
 }
 
-func tipareste(x1_re: Float, x1_im: Float, x2_re: Float, x2_im: Float){
+func tipareste(_ x1_re: Float, _ x1_im: Float, _ x2_re: Float, _ x2_im: Float){
 print("x1 = \(x1_re) + \(x1_im)i")
 print("x2 = \(x2_re) + \(x2_im)i")
 }
@@ -79,4 +79,4 @@ x2_im = 0
 
 citeste(&a, &b, &c)
 calculeaza(a, b, c, &x1_re, &x1_im, &x2_re, &x2_im)
-tipareste(a, b, c, x1_re, x1_im, x2_re, x2_im)
+tipareste(x1_re, x1_im, x2_re, x2_im)
