@@ -75,18 +75,20 @@ func tipareste(_ x1: [Float], _ x2: [Float])
 
 func tipareste_coeficienti(_ coef: [Float])
 {
+  //varianta 1
   /*
   for i in coef{
     print(i)
   }
-  */1
+  */
+  //varianta 2
   /*
   var i: Int = 0
   while(i < 3){
     print(coef[i])
     i += 1
   }
-  */2
+  */
   var i = 0
   repeat{
     print(coef[i])
