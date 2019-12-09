@@ -33,32 +33,32 @@ if let s_a = s_o_a{
             }
             else {
               //print("Nu s-a putut converti c")
-              return t_coef(a:1, b:2, c:3)
+              return t_coef(a:1, b:2, c:1)
             }
           }
           else {
             //print("Nu a citit nimic in c")
-            return t_coef(a:1, b:2, c:3)
+            return t_coef(a:1, b:2, c:1)
           }
         }
         else {
           //print("Nu s-a putut converti b")
-          return t_coef(a:1, b:2, c:3)
+          return t_coef(a:1, b:2, c:1)
         }
       }
       else {
         //print("Nu a citit nimic in b")
-        return t_coef(a:1, b:2, c:3)
+        return t_coef(a:1, b:2, c:1)
       }    
   }
   else {
     //print("Nu s-a putut converti a")
-    return t_coef(a:1, b:2, c:3)
+    return t_coef(a:1, b:2, c:1)
   }
 }
 else {
   //print("Nu a citit nimic in a")
-  return t_coef(a:1, b:2, c:3)
+  return t_coef(a:1, b:2, c:1)
 } 
 }
 
@@ -66,19 +66,21 @@ func calculeaza(_ coef:t_coef)->t_solutii
 {
   let delta = coef.b * coef.b - 4 * coef.a * coef.c
   if delta >= 0{
-    let x1 = t_solutie((-coef.b - sqrt(delta)) / (2 * coef[0])],[(-coef.b + sqrt(delta)) / (2 * coef.a),im:0)
-    let x2 = t_solutie((-coef.b - sqrt(delta)) / (2 * coef.c)],[(-coef.b + sqrt(delta)) / (2 * coef.a),im:0)
+    let x1 = t_solutie(re: (-coef.b - sqrt(delta)) / (2 * coef.a), im: 0)
+    let x2 = t_solutie(re: (-coef.b + sqrt(delta)) / (2 * coef.a), im: 0)
 
     return t_solutii(x1: x1, x2: x2)
 }
 else{
-  let x1 = t_solutie(re: -coef.b / (2 * coef.a),  -sqrt(-delta) / (2 * coef.a)],[ -coef.b / (2 * coef.a),  sqrt(-delta) / (2 * coef.a))
+  let x1 = t_solutie(re: -coef.b / (2 * coef.a), im: -sqrt(-delta) / (2 * coef.a))
 
   let x2 = t_solutie(re: -coef.b / (2 * coef.a), im: sqrt(-delta) / (2 * coef.a))
+
+  return t_solutii( x1: x1, x2: x2)
   }
 }
 
-func tipareste(_ x1: [Float], _ x2: [Float])
+func tipareste(_ x: t_solutii)
 {
   print("x1 = \(x.x1.re) + \(x.x1.im)i")
   print("x2 = \(x.x2.re) + \(x.x2.im)i")
