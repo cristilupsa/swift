@@ -26,8 +26,8 @@ if let s_a = s_o_a{
               else{
                 x1_re = -f_b / (2*f_a)
                 x2_re = -f_b / (2*f_a)
-                x1_re = -sqrt(delta) / (2 * f_a)
-                x1_re = sqrt(delta) / (2 * f_a)
+                x1_im = -sqrt(delta) / (2 * f_a)
+                x2_im = sqrt(delta) / (2 * f_a)
               }
               print("x1 = \(x1_re) + \(x1_im)i")
               print("x2 = \(x2_re) + \(x2_im)i")
